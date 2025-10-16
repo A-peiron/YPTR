@@ -37,13 +37,9 @@ cmake --build build
 
 ### Run
 ```bash
-export LD_LIBRARY_PATH=./librknn_api/aarch64:./mk_api:./mpp_api:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=./librknn_api/aarch64:$LD_LIBRARY_PATH
 
-# Pose tracking with ByteTrack
 ./build/pose_track_demo pose_track_config.ini
-
-# RTSP streaming (production)
-./build/usb_and_rtsp_to_rtsp_demo yunyan_simple_config_usb.ini
 ```
 
 ### Model Files
@@ -63,7 +59,6 @@ Edit `.ini` files to configure:
 - `EnableReID` - Enable person re-identification
 - `EnableWebSocket` - Enable WebSocket server
 - `WebSocketPort` - WebSocket port (default: 3000)
-- `PushRtspPort` - RTSP output port (default: 3554)
 
 ## WebSocket Format
 
@@ -103,14 +98,12 @@ YPTR/
 └── 3rdparty/rga/          # RGA library
 ```
 
-## Available Demos
+## Input Sources
 
-| Executable | Description |
-|------------|-------------|
-| `pose_track_demo` | Pose tracking with ByteTrack + ReID |
-| `usb_and_rtsp_to_rtsp_demo` | Multi-threaded RTSP streaming |
-| `local_camera_demo` | Local camera with position estimation |
-| `img_demo` | Static image detection |
+Edit `StreamUrl` in `pose_track_config.ini`:
+- USB Camera: `/dev/video0`
+- RTSP Stream: `rtsp://192.168.1.100:8554/stream`
+- Video File: `path/to/video.mp4`
 
 ## License
 
