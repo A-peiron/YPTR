@@ -1,0 +1,30 @@
+# Build directories
+build/
+cmake-build-*/
+
+# Model files (large binary files)
+weights/*.rknn
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Compiled files
+*.o
+*.so
+*.a
+*.out
+
+# Log files
+*.log
+log.txt
+
+# Calibration data (optional)
+calibration/*.yml
+
+# Temporary files
+*.tmp
+.cache/
